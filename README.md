@@ -3,6 +3,22 @@ Simple and light weight slider with ticker
 # Appearance
 ![screen shot](screeen_shot.png)
 
+# Install
+
+Create Podfile as below
+
+```
+use_frameworks!
+platform :ios, '8.0'
+pod 'FLTickerSlider', :git => 'https://github.com/fileio/FLTickerSlider.git'
+```
+
+then run
+
+```
+$ pod install
+```
+
 # Usage
 
 ```
