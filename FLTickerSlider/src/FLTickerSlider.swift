@@ -18,6 +18,8 @@ public class FLTickerSlider: UISlider {
         self.displayTickers()
     }
     
+    /// set tickers
+    /// - parameter tickers: FLSliderTick in Array
     public func setTickers(tickers: Array<FLSliderTick>) {
         self.tickers = tickers
         
