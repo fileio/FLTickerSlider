@@ -21,7 +21,7 @@ $ pod install
 
 # Usage
 
-```
+```swift
 // create FLTickerSlider instance
 let tickerSlider = FLTickerSlider.init(frame: CGRectMake(0, self.view.frame.size.height / 2, self.view.frame.size.width, 40))
 self.view.addSubview(tickerSlider)
