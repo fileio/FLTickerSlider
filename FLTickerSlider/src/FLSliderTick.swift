@@ -53,7 +53,7 @@ public class FLSliderTick {
         let tickeView = UIView()
         tickeView.backgroundColor = self.color
         
-        var additionalMargin = CGFloat(1.0)        
+        let additionalMargin = CGFloat(1.0)
         tickeView.frame = CGRectMake(offset,
                                      sliderHeight / 2 - self.height / 2 + additionalMargin,
                                      self.width,
