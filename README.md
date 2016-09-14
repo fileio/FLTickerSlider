@@ -10,7 +10,10 @@ Create Podfile as below
 ```
 use_frameworks!
 platform :ios, '8.0'
-pod 'FLTickerSlider'
+
+target '<TARGET_NAME>' do
+  pod 'FLTickerSlider'
+end
 ```
 
 then run
