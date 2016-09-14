@@ -10,7 +10,7 @@ Create Podfile as below
 ```
 use_frameworks!
 platform :ios, '8.0'
-pod 'FLTickerSlider', :git => 'https://github.com/fileio/FLTickerSlider.git'
+pod 'FLTickerSlider'
 ```
 
 then run
