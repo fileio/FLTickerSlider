@@ -8,11 +8,11 @@
 
 import UIKit
 
-public class FLSliderTick {
+open class FLSliderTick {
     
     public enum Shape {
-        case Rect
-        case Round
+        case rect
+        case round
     }
     
     /// shadow attribute
@@ -38,12 +38,12 @@ public class FLSliderTick {
     var shadow: Shadow?
     
     /// public property
-    public var alpha: CGFloat = 1.0
+    open var alpha: CGFloat = 1.0
     
     /// create ticker
     /// - parameter offset: must be between FLTickerSlider min max value
     public init(offset: CGFloat) {
-        self.shape = Shape.Round
+        self.shape = Shape.round
         self.height = 10
         self.width = 10
         self.offset = offset
@@ -56,7 +56,7 @@ public class FLSliderTick {
     /// - parameter shadow: ticker shadow
     public init(offset: CGFloat, color: UIColor, shadow: Shadow) {
         self.shadow = shadow
-        self.shape = Shape.Round
+        self.shape = Shape.round
         self.height = 10
         self.width = 10
         self.offset = offset
@@ -87,21 +87,21 @@ public class FLSliderTick {
         tickerView.backgroundColor = self.color
         tickerView.alpha = self.alpha
         
-        if self.shape == FLSliderTick.Shape.Round {
+        if self.shape == FLSliderTick.Shape.round {
             tickerView.layer.cornerRadius = self.height / 2;
         }
         
         if self.shadow != nil {
-            tickerView.layer.shadowColor = self.shadow!.color.CGColor
+            tickerView.layer.shadowColor = self.shadow!.color.cgColor
             tickerView.layer.shadowOffset = self.shadow!.offset
             tickerView.layer.shadowOpacity = self.shadow!.opacity
             tickerView.layer.shadowRadius = self.shadow!.radius
         }
         
-        tickerView.frame = CGRectMake(offset,
-                                      sliderHeight / 2 - self.height / 2,
-                                      self.width,
-                                      self.height)
+        tickerView.frame = CGRect(x: offset,
+                                  y: sliderHeight / 2 - self.height / 2,
+                                  width: self.width,
+                                  height: self.height)
         return tickerView
     }
     

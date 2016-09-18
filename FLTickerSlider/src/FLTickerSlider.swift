@@ -8,19 +8,19 @@
 
 import UIKit
 
-public class FLTickerSlider: UISlider {
+open class FLTickerSlider: UISlider {
     
-    private var tickers: Array<FLSliderTick>?
-    private var tickerViews: Array<UIView> = []
+    fileprivate var tickers: Array<FLSliderTick>?
+    fileprivate var tickerViews: Array<UIView> = []
     
-    override public func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override open func draw(_ rect: CGRect) {
+        super.draw(rect)
         self.displayTickers()
     }
     
     /// set tickers
     /// - parameter tickers: FLSliderTick in Array
-    public func setTickers(tickers: Array<FLSliderTick>) {
+    open func set(tickers: Array<FLSliderTick>) {
         self.tickers = tickers
         
         guard let _ = self.getReferenceView() else {
@@ -31,7 +31,7 @@ public class FLTickerSlider: UISlider {
     
     // MARK : private
     
-    private func displayTickers() {
+    fileprivate func displayTickers() {
         self.removeAllTicker()
         
         guard let ticks = self.tickers else {
@@ -39,11 +39,11 @@ public class FLTickerSlider: UISlider {
         }
         
         for tick in ticks {
-            self.displayTicker(tick)
+            self.display(tick: tick)
         }
     }
     
-    private func displayTicker(tick: FLSliderTick) {
+    fileprivate func display(tick: FLSliderTick) {
         if Float(tick.offset) > self.maximumValue {
             return
         }
@@ -52,21 +52,21 @@ public class FLTickerSlider: UISlider {
             return
         }
         
-        let tickerView = tick.createTickView(self)
+        let tickerView = tick.createTickView(slider: self)
         insertSubview(tickerView, belowSubview: referenceView)
         self.tickerViews.append(tickerView)
     }
 
-    private func getReferenceView() -> UIView? {
+    fileprivate func getReferenceView() -> UIView? {
         for view in self.subviews {
-            if view.isKindOfClass(UIImageView) && view.frame.size.height == view.frame.size.width {
+            if view.isKind(of: UIImageView.self) && view.frame.size.height == view.frame.size.width {
                 return view
             }
         }
         return nil
     }
     
-    private func removeAllTicker() {
+    fileprivate func removeAllTicker() {
         for tickerView in self.tickerViews {
             tickerView.removeFromSuperview()
         }
