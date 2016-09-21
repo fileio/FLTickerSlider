@@ -29,6 +29,19 @@ open class FLTickerSlider: UISlider {
         self.displayTickers()
     }
     
+    /// get tickers
+    open func get() -> Array<FLSliderTick> {
+        guard  let tickers = self.tickers else {
+            return []
+        }
+        return tickers
+    }
+    
+    /// re-draw tickers
+    open func redraw() {
+        self.displayTickers()
+    }
+    
     // MARK : private
     
     fileprivate func displayTickers() {

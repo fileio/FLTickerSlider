@@ -30,14 +30,12 @@ open class FLSliderTick {
         }
     }
     
-    var height: CGFloat
-    var width: CGFloat
-    var offset: CGFloat
-    var color: UIColor
-    var shape: Shape
-    var shadow: Shadow?
-    
-    /// public property
+    open var height: CGFloat
+    open var width: CGFloat
+    open var offset: CGFloat
+    open var color: UIColor
+    open var shape: Shape
+    open var shadow: Shadow?
     open var alpha: CGFloat = 1.0
     
     /// create ticker
@@ -54,7 +52,7 @@ open class FLSliderTick {
     /// - parameter offset: must be between FLTickerSlider min max value
     /// - parameter color: ticker color
     /// - parameter shadow: ticker shadow
-    public init(offset: CGFloat, color: UIColor, shadow: Shadow) {
+    public init(offset: CGFloat, color: UIColor, shadow: Shadow?) {
         self.shadow = shadow
         self.shape = Shape.round
         self.height = 10
@@ -69,7 +67,7 @@ open class FLSliderTick {
     /// - parameter offset: must be between FLTickerSlider min max value
     /// - parameter color: ticker color
     /// - parameter shadow: ticker shadow
-    public init(offset: CGFloat, color: UIColor, shadow: Shadow, width: CGFloat, height: CGFloat, shape: Shape) {
+    public init(offset: CGFloat, color: UIColor, shadow: Shadow?, width: CGFloat, height: CGFloat, shape: Shape) {
         self.shape = shape
         self.shadow = shadow
         self.height = height

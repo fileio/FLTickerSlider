@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let tickerSlider = FLTickerSlider.init(frame: CGRect(x: 0, y: self.view.frame.size.height / 2, width: self.view.frame.size.width, height: 40))
+        let tickerSlider = FLTickerSlider.init(frame: CGRect(x: 0, y: self.view.frame.size.height / 2, width: self.view.frame.size.width, height: 40))        
         self.view.addSubview(tickerSlider)
         
         let shadow = FLSliderTick.Shadow(color: UIColor.blue,
@@ -53,7 +53,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 
