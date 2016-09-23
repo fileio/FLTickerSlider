@@ -76,10 +76,13 @@ open class FLSliderTick {
         self.color = color
     }
     
-    func createTickView(slider: UIView) -> UIView {
-        let sliderWidth = slider.frame.size.width
+    func createTickView(slider: FLTickerSlider) -> UIView {
+        let trackRect = slider.trackRect(forBounds: slider.bounds)
+        let thumbRect = slider.thumbRect(forBounds: slider.bounds, trackRect: trackRect, value: 0)
+        let thumbWidth = thumbRect.size.width
+        let sliderWidth = slider.frame.size.width - thumbWidth
         let sliderHeight = slider.frame.size.height
-        let offset = self.offset * sliderWidth - self.width / 2
+        let offset = self.offset * sliderWidth - self.width / 2 + thumbWidth / 2
         
         let tickerView = UIView()
         tickerView.backgroundColor = self.color
