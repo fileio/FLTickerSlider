@@ -76,9 +76,7 @@ open class FLSliderTick {
         self.color = color
     }
     
-    func createTickView(slider: FLTickerSlider) -> UIView {
-        let trackRect = slider.trackRect(forBounds: slider.bounds)
-        let thumbRect = slider.thumbRect(forBounds: slider.bounds, trackRect: trackRect, value: 0)
+    func createTickView(slider: FLTickerSlider, thumbRect: CGRect) -> UIView {
         let thumbWidth = thumbRect.size.width
         let sliderWidth = slider.frame.size.width - thumbWidth
         let sliderHeight = slider.frame.size.height

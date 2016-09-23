@@ -23,7 +23,7 @@ open class FLTickerSlider: UISlider {
     open func set(tickers: Array<FLSliderTick>) {
         self.tickers = tickers
         
-        guard let _ = self.getReferenceView() else {
+        guard let _ = self.getThumbnailView() else {
             return
         }
         self.displayTickers()
@@ -61,18 +61,21 @@ open class FLTickerSlider: UISlider {
             return
         }
         
-        guard let referenceView = self.getReferenceView() else {
+        guard let thumbnailView = self.getThumbnailView() else {
             return
         }
         
-        let tickerView = tick.createTickView(slider: self)
-        insertSubview(tickerView, belowSubview: referenceView)
+        let thumbRect = self.getThumbRect()
+        let tickerView = tick.createTickView(slider: self, thumbRect: thumbRect)
+        insertSubview(tickerView, belowSubview: thumbnailView)
         self.tickerViews.append(tickerView)
     }
 
-    fileprivate func getReferenceView() -> UIView? {
+    fileprivate func getThumbnailView() -> UIView? {
+        let thumbRect = self.getThumbRect()
+        
         for view in self.subviews {
-            if view.isKind(of: UIImageView.self) && view.frame.size.height == view.frame.size.width {
+            if view.isKind(of: UIImageView.self) && view.frame == thumbRect {
                 return view
             }
         }
@@ -84,6 +87,13 @@ open class FLTickerSlider: UISlider {
             tickerView.removeFromSuperview()
         }
         self.tickerViews.removeAll()
+    }
+    
+    fileprivate func getThumbRect() -> CGRect {
+        let trackRect = self.trackRect(forBounds: self.bounds)
+        let thumbRect = self.thumbRect(forBounds: self.bounds, trackRect: trackRect, value: self.value)
+        
+        return thumbRect
     }
     
 }
